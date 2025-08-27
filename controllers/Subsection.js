@@ -198,6 +198,7 @@ exports.getSignedVideoUrl = async (req, res) => {
     type: "authenticated",
     sign_url: true,
     expires_at: expiresAt,
+    secure: true,
   });
 console.log("Generated signed URL:", signedUrl);
     return res.json({ success: true, url: signedUrl });
