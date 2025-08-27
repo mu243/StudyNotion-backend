@@ -22,12 +22,24 @@ database.connect();
 app.use(express.json());
 app.use(express.urlencoded({extended: true}))//for using postman
 app.use(cookieParser());
+//cors configuration
+const allowedOrigins = [
+  "http://localhost:3000", // local dev
+  "https://studynotion-frontend.onrender.com" // your deployed frontend URL
+];
+
 app.use(
-	cors({
-		origin:"http://localhost:3000",
-		credentials:true,
-	})
-)
+  cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+  })
+);
 
 app.use(
 	fileUpload({
