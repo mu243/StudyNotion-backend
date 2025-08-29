@@ -25,7 +25,7 @@ app.use(cookieParser());
 //cors configuration
 const allowedOrigins = [
   "http://localhost:3000", // local dev
-  "https://studynotion-frontend-ab05.onrender.com" // your deployed frontend URL
+  "https://studynotion-e6pj.onrender.com" // your deployed frontend URL
 ];
 
 app.use(
